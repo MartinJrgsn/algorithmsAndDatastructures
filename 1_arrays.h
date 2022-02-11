@@ -2,6 +2,7 @@
 #include <iostream>
 
 /*******************************************************************************************************************************************************************************\
+* Chapter 1 - Introduction to arrays
 * You've probably used arrays before, if not:																																	*
 * "An array is a collection of similar data elements stored at contiguous memory locations." - https://www.mygreatlearning.com/blog/what-is-an-array-learn-more-in-one-read/	*
 * At beginner levels we learn to use arrays in order to store and access data quickly. *Example 1*																				*
@@ -36,5 +37,49 @@ namespace arrayExamples {
 
 	namespace exampleB {
 		// to be continued
+	}
+
+	void show_examples() {
+		// In order to print out the examples.
+		// Call the function show_examples, from the namespace arrayExamples in main(), by typing this: 'arrayExamples::show_examples();' 
+
+		char example{ 'p' };
+		std::vector<std::string> examples
+		{
+			"'p': print this message",
+			"'a': example 1",
+			"'b': example 2",	// TODO: Write examples for some use-cases for arrays.
+			"'c': example 3",	// TODO: Write examples for some use-cases for arrays.
+			"'q' : quit"
+		};
+
+		// Creating a switch statement, allows for ease of use, when it comes to presenting the differing examples:
+		while (example != 'q') {
+			switch (example) {
+			case 'p': // print examples available for presentation
+				std::cout << "Enter a single character value in order to print out the following:\n";
+				for (auto exampleTexts : examples) {
+					std::cout << exampleTexts << "\n";
+				}
+				std::cin >> example;
+				//system("cls");
+				break;
+
+			case 'a':
+				arrayExamples::exampleA::presetRun();
+				std::cout << "\n continue? type any character from the list -> RETURN, quit type 'q' -> RETURN: ";
+				std::cin >> example;
+				//system("cls");
+				break;
+
+			case 'q':
+				break;
+
+			default:
+				std::cout << "invalid response, try again: ";
+				std::cin >> example;
+			}
+		}
+		std::cout << "Next chapter: Chapter 2 - Singly linked lists\n";
 	}
 }
